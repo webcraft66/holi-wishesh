@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Happy Holi! 🎁</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a0a2e, #16213e, #0f3460, #533483, #e94560);
+            background-size: 400% 400%;
+            animation: gradientBG 8s ease infinite;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container { text-align: center; position: relative; z-index: 10; }
+
+        h1 {
+            font-size: 5rem;
+            color: #fff;
+            text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #feca57, 0 0 40px #48dbfb, 0 0 50px #ff9ff3;
+            animation: glowText 2s ease-in-out infinite alternate, bounceText 1s ease-in-out infinite alternate;
+            margin-bottom: 30px;
+            letter-spacing: 5px;
+        }
+
+        @keyframes glowText {
+            from { text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #feca57, 0 0 40px #48dbfb; }
+            to { text-shadow: 0 0 20px #feca57, 0 0 30px #feca57, 0 0 40px #48dbfb, 0 0 50px #ff9ff3, 0 0 60px #ff6b6b; }
+        }
+
+        @keyframes bounceText { from { transform: translateY(0) scale(1); } to { transform: translateY(-20px) scale(1.05); } }
+
+        .character-wrapper { position: relative; display: inline-block; }
+
+        .speech-bubble {
+            position: absolute;
+            top: -130px;
+            right: -100px;
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            border-radius: 20px;
+            padding: 20px 25px;
+            max-width: 250px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5), 0 10px 30px rgba(0,0,0,0.3);
+            animation: speak 2s ease-in-out infinite;
+            z-index: 20;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 30px;
+            width: 0; height: 0;
+            border: 15px solid transparent;
+            border-top-color: #fff;
+            border-bottom: 0;
+            border-right: 0;
+            margin-left: -10px;
+        }
+
+        @keyframes speak {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255,255,255,0.5), 0 10px 30px rgba(0,0,0,0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(255,255,255,0.8), 0 10px 40px rgba(0,0,0,0.4); }
+        }
+
+        .speech-bubble p { color: #333; font-size: 1.1rem; font-weight: bold; margin: 0; line-height: 1.4; }
+        .speech-bubble .emoji { font-size: 1.5rem; animation: emojiBounce 0.5s ease-in-out infinite alternate; }
+        @keyframes emojiBounce { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+
+        .magical-aura {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px; height: 430px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            animation: aura 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes aura {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.8; }
+        }
+
+        .character-container { position: relative; width: 400px; height: 450px; margin: 0 auto; }
+
+        .character {
+            width: 300px; height: 380px;
+            background-image: url('file:///c:/Users/Laptop%20Walah/Downloads/disney.jpeg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.5), 0 0 60px rgba(72, 219, 251, 0.3), 0 20px 50px rgba(0,0,0,0.4);
+            animation: walk 0.8s ease-in-out infinite, magicalGlow 2s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes magicalGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 107, 107, 0.5), 0 0 60px rgba(72, 219, 251, 0.3), 0 20px 50px rgba(0,0,0,0.4); }
+            50% { box-shadow: 0 0 50px rgba(254, 202, 87, 0.6), 0 0 80px rgba(255, 159, 243, 0.4), 0 0 100px rgba(84, 160, 255, 0.3), 0 20px 50px rgba(0,0,0,0.4); }
+        }
+
+        @keyframes walk {
+            0%, 100% { transform: translateY(0) rotate(-3deg) scale(1); }
+            25% { transform: translateY(-30px) rotate(2deg) scale(1.05); }
+            50% { transform: translateY(0) rotate(-1deg) scale(1.1); }
+            75% { transform: translateY(-30px) rotate(3deg) scale(1.05); }
+        }
+
+        .character::after {
+            content: '';
+            position: absolute;
+            bottom: -30px; left: 50%;
+            transform: translateX(-50%);
+            width: 150px; height: 30px;
+            background: rgba(0,0,0,0.25);
+            border-radius: 50%;
+            animation: shadow 0.8s ease-in-out infinite;
+        }
+
+        @keyframes shadow {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+            50% { transform: translateX(-50%) scale(0.7); opacity: 0.15; }
+        }
+
+        .sparkle-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+
+        .sparkle {
+            position: absolute;
+            width: 8px; height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 1.5s ease-in-out infinite;
+            box-shadow: 0 0 10px white, 0 0 20px #feca57;
+        }
+
+        @keyframes sparkle { 0%, 100% { opacity: 0; transform: scale(0); } 50% { opacity: 1; transform: scale(1.5); } }
+
+        .message {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-top: 50px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(254, 202, 87, 0.5);
+            animation: fadeInOut 2s ease-in-out infinite, messageGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes messageGlow {
+            from { text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(254, 202, 87, 0.5); }
+            to { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255, 159, 243, 0.6); }
+        }
+
+        @keyframes fadeInOut { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+
+        /* Gift Boxes */
+        .gift-container {
+            position: fixed;
+            bottom: 100px;
+            display: flex;
+            gap: 20px;
+            z-index: 50;
+        }
+
+        .gift-box {
+            width: 70px;
+            height: 70px;
+            cursor: pointer;
+            animation: giftBounce 1s ease-in-out infinite;
+            transition: transform 0.3s;
+            font-size: 50px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        }
+
+        .gift-box:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        @keyframes giftBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .gift-box:nth-child(1) { animation-delay: 0s; }
+        .gift-box:nth-child(2) { animation-delay: 0.2s; }
+        .gift-box:nth-child(3) { animation-delay: 0.4s; }
+        .gift-box:nth-child(4) { animation-delay: 0.6s; }
+
+        /* Gift Surprises */
+        .surprise {
+            position: fixed;
+            font-size: 40px;
+            pointer-events: none;
+            z-index: 200;
+            animation: surprisePop 1s ease-out forwards;
+        }
+
+        @keyframes surprisePop {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.5) rotate(180deg); opacity: 1; }
+            100% { transform: scale(0) rotate(360deg) translateY(-200px); opacity: 0; }
+        }
+
+        .color-splash { position: absolute; border-radius: 50%; animation: splash 3s ease-in-out infinite; filter: blur(2px); }
+        .color-splash:nth-child(1) { width: 100px; height: 100px; background: #ff6b6b; top: 10%; left: 10%; }
+        .color-splash:nth-child(2) { width: 80px; height: 80px; background: #feca57; top: 20%; right: 15%; animation-delay: 0.5s; }
+        .color-splash:nth-child(3) { width: 120px; height: 120px; background: #48dbfb; bottom: 20%; left: 20%; animation-delay: 1s; }
+        .color-splash:nth-child(4) { width: 90px; height: 90px; background: #ff9ff3; bottom: 30%; right: 10%; animation-delay: 1.5s; }
+        .color-splash:nth-child(5) { width: 70px; height: 70px; background: #54a0ff; top: 40%; left: 5%; animation-delay: 2s; }
+
+        @keyframes splash { 0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; } 50% { transform: scale(1.3) rotate(180deg); opacity: 0.3; } }
+
+        .floating-colors { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+
+        .color-ball { position: absolute; border-radius: 50%; animation: float 6s ease-in-out infinite; box-shadow: 0 0 15px currentColor; }
+        @keyframes float { 0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); } 25% { transform: translateY(-100px) translateX(50px) rotate(90deg); } 50% { transform: translateY(-200px) translateX(-30px) rotate(180deg); } 75% { transform: translateY(-100px) translateX(40px) rotate(270deg); } }
+
+        .magical-particle { position: absolute; width: 4px; height: 4px; background: white; border-radius: 50%; animation: particleFloat 4s ease-in-out infinite; box-shadow: 0 0 6px white, 0 0 12px #feca57; }
+        @keyframes particleFloat { 0%, 100% { transform: translateY(0) scale(1); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-300px) scale(0.5); opacity: 0; } }
+
+        .play-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 100;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.05); } }
+        .play-btn:hover { transform: translateX(-50%) scale(1.1); }
+    </style>
+</head>
+<body>
+    <audio id="holiAudio">
+        <source src="file:///c:/Users/Laptop%20Walah/Downloads/YT%20Video%20Download/happy%20holi.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="color-splash"></div>
+    <div class="color-splash"></div>
+    <div class="color-splash"></div>
+    <div class="color-splash"></div>
+    <div class="color-splash"></div>
+
+    <div class="floating-colors" id="floatingColors"></div>
+
+    <div class="container">
+        <h1>✨ Happy Holi! ✨</h1>
+        
+        <div class="character-wrapper">
+            <div class="magical-aura"></div>
+            <div class="sparkle-container" id="sparkleContainer"></div>
+            
+            <div class="speech-bubble">
+                <p><span class="emoji">🎨</span> Happy Holi!</p>
+                <p>🌷 Wish you joy!</p>
+            </div>
+            
+            <div class="character-container">
+                <div class="character"></div>
+            </div>
+        </div>
+        
+        <p class="message">🌈 Wishing you a magical & colorful Holi! 🧡💚💙💜</p>
+    </div>
+
+    <!-- Virtual Gifts -->
+    <div class="gift-container">
+        <div class="gift-box" onclick="openGift(this, '🎁')">🎁</div>
+        <div class="gift-box" onclick="openGift(this, '💝')">💝</div>
+        <div class="gift-box" onclick="openGift(this, '🌸')">🌸</div>
+        <div class="gift-box" onclick="openGift(this, '🎉')">🎉</div>
+    </div>
+
+    <button class="play-btn" onclick="playAudio()">🎵 Play Holi Wishes</button>
+
+    <script>
+        function playAudio() {
+            const audio = document.getElementById('holiAudio');
+            audio.play().catch(e => alert('Please click to enable audio!'));
+        }
+
+        // Gift opening function
+        function openGift(element, surpriseEmoji) {
+            // Hide the gift temporarily
+            element.style.display = 'none';
+            
+            // Create multiple surprises
+            const surprises = ['💖', '🌺', '🎊', '✨', '💜', '🧡', '💚', '💙', '🌷', '🎨', '🎁', '😘'];
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const surprise = document.createElement('div');
+                    surprise.className = 'surprise';
+                    surprise.innerHTML = surprises[Math.floor(Math.random() * surprises.length)];
+                    surprise.style.left = (Math.random() * window.innerWidth) + 'px';
+                    surprise.style.top = (Math.random() * window.innerHeight * 0.7) + 'px';
+                    surprise.style.fontSize = (30 + Math.random() * 40) + 'px';
+                    document.body.appendChild(surprise);
+                    
+                    setTimeout(() => surprise.remove(), 1000);
+                }, i * 100);
+            }
+            
+            // Show the gift again after animation
+            setTimeout(() => {
+                element.style.display = 'block';
+            }, 2000);
+        }
+
+        function createSparkles() {
+            const container = document.getElementById('sparkleContainer');
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 1.5 + 's';
+                container.appendChild(sparkle);
+            }
+        }
+
+        function createParticles() {
+            const wrapper = document.querySelector('.character-wrapper');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'magical-particle';
+                particle.style.left = (20 + Math.random() * 60) + '%';
+                particle.style.bottom = '0';
+                particle.style.animationDelay = Math.random() * 4 + 's';
+                particle.style.animationDuration = (3 + Math.random() * 2) + 's';
+                wrapper.appendChild(particle);
+            }
+        }
+
+        function createFloatingColors() {
+            const container = document.getElementById('floatingColors');
+            const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff', '#5f27cd', '#ee5a24', '#00d2d3'];
+            
+            for (let i = 0; i < 20; i++) {
+                const ball = document.createElement('div');
+                ball.className = 'color-ball';
+                ball.style.width = (15 + Math.random() * 35) + 'px';
+                ball.style.height = ball.style.width;
+                ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+                ball.style.left = Math.random() * 100 + '%';
+                ball.style.animationDelay = Math.random() * 4 + 's';
+                ball.style.animationDuration = (4 + Math.random() * 4) + 's';
+                container.appendChild(ball);
+            }
+        }
+
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('play-btn') || e.target.classList.contains('gift-box')) return;
+            
+            const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff', '#ffffff'];
+            
+            for (let i = 0; i < 8; i++) {
+                const burst = document.createElement('div');
+                burst.style.position = 'fixed';
+                burst.style.left = e.clientX + 'px';
+                burst.style.top = e.clientY + 'px';
+                burst.style.width = '15px';
+                burst.style.height = '15px';
+                burst.style.background = colors[Math.floor(Math.random() * colors.length)];
+                burst.style.borderRadius = '50%';
+                burst.style.pointerEvents = 'none';
+                burst.style.zIndex = '100';
+                burst.style.animation = 'magicBurst 0.8s ease-out forwards';
+                
+                const angle = (i / 8) * Math.PI * 2;
+                const distance = 50 + Math.random() * 50;
+                burst.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+                burst.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+                
+                document.body.appendChild(burst);
+                setTimeout(() => burst.remove(), 800);
+            }
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `@keyframes magicBurst { 0% { transform: scale(1); opacity: 1; } 100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; } }`;
+        document.head.appendChild(style);
+
+        createSparkles();
+        createParticles();
+        createFloatingColors();
+    </script>
+</body>
+</html>
