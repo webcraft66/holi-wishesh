@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Happy Holi 2025! 🎨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- GLITTER OVERLAY - Extra Sparkle Effects -->
+    <div class="glitter-overlay" id="glitterOverlay"></div>
+    <div class="sparkle-layer" id="sparkleLayer"></div>
+    
+    <!-- Holi Background Effects -->
+    <div class="holi-sky" id="holiSky"></div>
+    <div class="color-rainbow" id="colorRainbow"></div>
+    <div class="floating-colors" id="floatingColors"></div>
+    
+    <!-- Extra Glitter Particles -->
+    <div class="extra-glitter" id="extraGlitter"></div>
+    
+    <!-- Water Balloons -->
+    <div class="balloons-container" id="balloonsContainer"></div>
+    
+    <!-- Pichkari (Water Gun) Cursor Effect -->
+    <div class="pichkari-cursor" id="pichkariCursor">
+        <span>🔫</span>
+    </div>
+
+    <div class="container">
+        <!-- GLITTER Title -->
+        <header class="header shimmer">
+            <div class="color-bomb">🎊</div>
+            <h1 class="title">
+                <span class="color-text" data-color="#ff6b6b">H</span><span class="color-text" data-color="#ffd93d">o</span><span class="color-text" data-color="#6bcb77">l</span><span class="color-text" data-color="#4d96ff">i</span>
+                <span class="color-text" data-color="#ff6b6b">!</span>
+            </h1>
+            <p class="subtitle">Click anywhere to splash colors! 🎨</p>
+        </header>
+
+        <!-- Interactive Color Splash Section -->
+        <section class="splash-section">
+            <div class="splash-instruction">
+                <p>👆 Click anywhere to throw colors!</p>
+            </div>
+            <canvas id="colorCanvas"></canvas>
+        </section>
+
+        <!-- Holi Card -->
+        <section class="card-section">
+            <div class="holi-card" id="holiCard" onclick="flipCard()">
+                <div class="card-front">
+                    <div class="card-decorations">
+                        <span class="deco">🎨</span>
+                        <span class="deco">🫧</span>
+                        <span class="deco">🎊</span>
+                    </div>
+                    <div class="card-gulal"></div>
+                    <h2>A Holi Surprise!</h2>
+                    <p>Click to reveal the magic ✨</p>
+                    <div class="water-drop"></div>
+                </div>
+                <div class="card-back">
+                    <div class="holi-content">
+                        <div class="cute-dancer">💃</div>
+                        <h2>🌈 Happy Holi! 🌈</h2>
+                        <p class="holi-wish">
+                            May your life be as colorful as Holi,<br>
+                            As sweet as gujiya,<br>
+                            As fun as water fights!<br>
+                            🎨🫧🎊
+                        </p>
+                        <div class="signature">
+                            <span class="heart">❤️</span>
+                            <p>Have a Colorful Holi!</p>
+                        </div>
+                        <div class="waving-hand">👋</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Holi Memories Photo Frame -->
+        <section class="memories-section">
+            <h2 class="section-title">📸 Holi Memories Frame</h2>
+            <div class="photo-frame" id="photoFrame" onclick="takeMemory()">
+                <div class="frame-inner">
+                    <div class="frame-decorations">
+                        <span>🎨</span><span>🫧</span><span>🎊</span><span>🌈</span>
+                        <span>🎨</span><span>🫧</span><span>🎊</span><span>🌈</span>
+                    </div>
+                    <p class="frame-text">Click to capture this moment! 📸</p>
+                    <div class="captured-moment" id="capturedMoment"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Holi Wishes Section -->
+        <section class="wishes-section">
+            <h2 class="section-title">💝 Holi Wishes For You 💝</h2>
+            <div class="wishes-container">
+                <div class="wish-card" data-color="#ff6b6b">
+                    <span class="wish-emoji">🎨</span>
+                    <p>May your life be painted with colors of joy, love & happiness!</p>
+                </div>
+                <div class="wish-card" data-color="#ffd93d">
+                    <span class="wish-emoji">🫧</span>
+                    <p>Like bubbles, may your worries burst and happiness multiply!</p>
+                </div>
+                <div class="wish-card" data-color="#6bcb77">
+                    <span class="wish-emoji">🌿</span>
+                    <p>May your relationship grow stronger with each color!</p>
+                </div>
+                <div class="wish-card" data-color="#4d96ff">
+                    <span class="wish-emoji">💧</span>
+                    <p>Let the water of Holi wash away all your sorrows!</p>
+                </div>
+                <div class="wish-card" data-color="#ff9ff3">
+                    <span class="wish-emoji">🎊</span>
+                    <p>May this Holi bring fun, frolic and sweet memories!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fun Holi Quiz -->
+        <section class="quiz-section">
+            <h2 class="section-title">🎯 Holi Fun Quiz</h2>
+            <div class="quiz-card" onclick="nextQuestion()">
+                <div class="quiz-icon">🎯</div>
+                <p class="quiz-question" id="quizQuestion">Click to play!</p>
+                <p class="quiz-choices" id="quizChoices"></p>
+                <div class="quiz-result" id="quizResult"></div>
+            </div>
+        </section>
+
+        <!-- Holika Dahan (Bonfire) -->
+        <section class="bonfire-section">
+            <h2 class="section-title">🔥 Holika Dahan 🔥</h2>
+            <div class="bonfire" id="bonfire">
+                <div class="flame flame1">🔥</div>
+                <div class="flame flame2">🔥</div>
+                <div class="flame flame3">🔥</div>
+                <div class="bonfire-base">🪵</div>
+                <p class="bonfire-text">Burn the evil, embrace the good!</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🎨 Made with Love for Holi 🎨</p>
+            <div class="footer-colors">
+                <span style="color: #ff6b6b">●</span>
+                <span style="color: #ffd93d">●</span>
+                <span style="color: #6bcb77">●</span>
+                <span style="color: #4d96ff">●</span>
+                <span style="color: #ff9ff3">●</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Color Splash Container -->
+    <div class="splash-container" id="splashContainer"></div>
+
+    <!-- Bubble Container -->
+    <div class="bubbles" id="bubbles"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
